@@ -1,15 +1,9 @@
 # Eclipse / AURIX Studio 관련
-.settings/
-.project
-.cproject
 *.launch
 
 # 디버깅 설정
 TriCore Debug (TASKING)/
 *.launch
-
-# AURIX/Eclipse 내부 메타데이터
-.ads/
 
 # 빌드 아티팩트
 build/
