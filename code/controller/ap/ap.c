@@ -31,6 +31,8 @@
 /*********************************************************************************************************************/
 
 #include "ap.h"
+#include "LKAS.h"
+#include "ACC.h"
 
 /*********************************************************************************************************************/
 /*------------------------------------------------------Macros-------------------------------------------------------*/
@@ -40,10 +42,16 @@
 /*-------------------------------------------------Global variables--------------------------------------------------*/
 /*********************************************************************************************************************/
 
+
 adas_controller_t adas_controller;
 float ultra_dis1;
 float ultra_dis2;
 float ultra_dis3;
+
+
+uint8 left_flag = 0;
+uint8 right_flag = 0;
+int8_t yaw_rate = 0;
 
 /*********************************************************************************************************************/
 /*--------------------------------------------Private Variables/Constants--------------------------------------------*/
@@ -52,11 +60,13 @@ float ultra_dis3;
 /*********************************************************************************************************************/
 /*------------------------------------------------Function Prototypes------------------------------------------------*/
 /*********************************************************************************************************************/
-
+void app_task_100ms(void);
+void app_task_50ms(void);
+void app_scheduling(void);
 /*********************************************************************************************************************/
 /*---------------------------------------------Function Implementations----------------------------------------------*/
 /*********************************************************************************************************************/
-
+uint8 CANTxMessage[8] = {0,};
 
 void ap_init(void)
 {
@@ -65,9 +75,16 @@ void ap_init(void)
 
 void ap_main(void)
 {
+//  uint32_t new_target_freq[MOTOR_MAX_CH] = {500, 500, 500, 500};
+//  motor_update_target(new_target_freq, 1);
+//  motor_start();
+  scheduler_init();
+  ACC_initialize();
+  LKAS_initialize();
 
   while(1)
   {
+
       uint32 tick = 5000;
       led_toggle(_DEF_LED1);
       set_car_distance(ULTRA_LEFT);
@@ -77,6 +94,89 @@ void ap_main(void)
       ultra_dis2 = get_car_distance(ULTRA_CENTER);  // 중앙
       ultra_dis3 = get_car_distance(ULTRA_RIGHT);   // 우측
       while(tick--);
+
+      app_scheduling();
+
+    control_LED();
+//      uint32 tick = 5000;
+//      led_toggle(_DEF_LED1);
+//      while(tick--);
+//      receive_uart_message();
+//      transmitCanMessage(CANTxMessage);
+//      uint32 tick = 5000;
+//      while(tick--);
+
+
+      //버튼이 눌렸는지
+
   }
+}
+
+void app_scheduling(void)
+{
+    if (st_scheduling_info.u8nu_scheduling_100ms_flag == 1u)
+    {
+        st_scheduling_info.u8nu_scheduling_100ms_flag = 0u;
+        app_task_100ms();
+    }
+    if (st_scheduling_info.u8nu_scheduling_50ms_flag == 1u)
+    {
+        st_scheduling_info.u8nu_scheduling_50ms_flag = 0u;
+        app_task_50ms();
+    }
+}
+
+void app_task_50ms(void)
+{
+
+    receive_uart_message();//uart 버퍼 확인
+    if(l_cur==1&&r_cur==1){//깜빡이가 안켜졌을때
+        CANTxMessage[0] = 0;
+        //g_rxData[0] = -2;//test data
+        rtU1.heading_error = g_rxData[0];
+        rtU1.heading_error /=10;
+        rtU.distance=read_distance(0);//초음파센서 값 확인
+        if(Rx_arr[0]>=0 && Rx_arr[0]<=3){
+            rtU.current_speed = Rx_arr[0];
+        }
+        else{
+            rtU.current_speed = 0;
+        }
+
+        ACC_step();//acc_step()
+        CANTxMessage[1] = rtY.control_speed*10;
+        LKAS_step();//lkas_step()
+        CANTxMessage[2] = rtY1.yaw_rate;
+    }
+    else if(l_cur==0){//좌깜빡이가 켜졌을때 10번 신호를 주고 끔
+        if(read_distance(1)>200){
+            CANTxMessage[0] = 1;
+            left_flag++;
+            if(left_flag>10){
+                left_flag = 0;
+                l_cur ==0;
+            }
+        }
+
+
+    }
+    else if(r_cur==0){//우깜빡이가 켜졌을때 10번 신호를 주고 끔
+        if(read_distance(2)>200){
+            CANTxMessage[0] = 2;
+            right_flag++;
+            if(right_flag>10){
+                right_flag = 0;
+                r_cur ==0;
+            }
+        }
+    }
+
+    //버튼 플래그 올라가있으면 button값 변
+}
+
+
+void app_task_100ms(void)
+{
+    transmitCanMessage(CANTxMessage);//CAN send(button,control_speed,yaw_rate)
 }
 

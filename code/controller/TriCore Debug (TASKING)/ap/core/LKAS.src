@@ -1,0 +1,541 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
+	.compiler_invocation	"ctc -f cc39088a --dep-file=ap/core/LKAS.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc27xd -D__CPU_TC27XD__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc27xd -DIFX_GTM=1 -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275 -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Configurations -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\Infra -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\Infra\\\\Sfr\\\\TC27D -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\Infra\\\\Sfr\\\\TC27D\\\\_Reg -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\Service -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\Service\\\\CpuGeneric\\\\StdIf -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Asclin -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Cpu\\\\CStart -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Cpu\\\\Trap -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Gtm\\\\Atom -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Gtm\\\\Atom\\\\Timer -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Multican -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Multican\\\\Can -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Multican\\\\Std -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Port -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Scu -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Src -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Stm -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\_Lib -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\Libraries\\\\iLLD\\\\TC27D\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\ap -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\ap\\\\core -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\bsp -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\common -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\common\\\\core -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\common\\\\hw -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\common\\\\hw\\\\include -IC:\\\\Users\\\\USER\\\\Downloads\\\\AdvancedDriverAssistanceSystem\\\\code\\\\template\\\\tc275\\\\hw -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o ap/core/LKAS.src ../ap/core/LKAS.c"
+	.compiler_name		"ctc"
+	;source	'../ap/core/LKAS.c'
+
+	
+$TC16X
+	
+	.sdecl	'.text.LKAS.LKAS_step',code,cluster('LKAS_step')
+	.sect	'.text.LKAS.LKAS_step'
+	.align	2
+	
+	.global	LKAS_step
+; Function LKAS_step
+.L7:
+LKAS_step:	.type	func
+	movh.a	a15,#@his(rtU1)
+	lea	a15,[a15]@los(rtU1)
+.L53:
+	ld.w	d15,[a15]
+.L54:
+	mov	d0,#5268
+	addih	d0,d0,#49810
+.L55:
+	mul.f	d0,d15,d0
+.L56:
+	movh.a	a15,#@his(rtDW1)
+	lea	a15,[a15]@los(rtDW1)
+.L57:
+	ld.w	d15,[a15]4
+.L58:
+	sub.f	d15,d0,d15
+.L59:
+	mov	d0,#17510
+	addih	d0,d0,#15963
+.L60:
+	mul.f	d2,d15,d0
+.L38:
+	movh.a	a15,#@his(rtU1)
+	lea	a15,[a15]@los(rtU1)
+.L61:
+	ld.w	d15,[a15]
+.L62:
+	mov	d0,#15685
+	addih	d0,d0,#16762
+.L63:
+	movh.a	a15,#@his(rtDW1)
+	lea	a15,[a15]@los(rtDW1)
+.L64:
+	ld.w	d1,[a15]
+.L65:
+	madd.f	d15,d1,d15,d0
+.L66:
+	add.f	d0,d15,d2
+.L39:
+	movh	d15,#16128
+.L67:
+	cmp.f	d15,d0,d15
+	extr.u	d15,d15,#2,#1
+.L68:
+	jeq	d15,#0,.L2
+.L69:
+	movh.a	a15,#@his(rtY1)
+	lea	a15,[a15]@los(rtY1)
+.L70:
+	movh	d15,#16128
+.L71:
+	st.w	[a15],d15
+.L72:
+	j	.L3
+.L2:
+	movh	d15,#48896
+.L73:
+	cmp.f	d15,d0,d15
+	jnz.t	d15:0,.L4
+.L74:
+	movh.a	a15,#@his(rtY1)
+	lea	a15,[a15]@los(rtY1)
+.L75:
+	st.w	[a15],d0
+.L76:
+	j	.L5
+.L4:
+	movh.a	a15,#@his(rtY1)
+	lea	a15,[a15]@los(rtY1)
+.L77:
+	movh	d15,#48896
+.L78:
+	st.w	[a15],d15
+.L5:
+.L3:
+	movh.a	a15,#@his(rtDW1)
+	lea	a15,[a15]@los(rtDW1)
+.L79:
+	movh.a	a2,#@his(rtU1)
+	lea	a2,[a2]@los(rtU1)
+.L80:
+	ld.w	d15,[a2]
+.L81:
+	mov	d0,#31931
+.L40:
+	addih	d0,d0,#16192
+.L82:
+	movh.a	a2,#@his(rtDW1)
+	lea	a2,[a2]@los(rtDW1)
+.L83:
+	ld.w	d1,[a2]
+.L84:
+	madd.f	d15,d1,d15,d0
+	st.w	[a15],d15
+.L85:
+	movh.a	a15,#@his(rtDW1)
+	lea	a15,[a15]@los(rtDW1)
+.L86:
+	mov.u	d0,#52429
+	addih	d0,d0,#15820
+.L87:
+	movh.a	a2,#@his(rtDW1)
+	lea	a2,[a2]@los(rtDW1)
+.L88:
+	ld.w	d15,[a2]4
+.L89:
+	madd.f	d15,d15,d2,d0
+	st.w	[a15]4,d15
+.L90:
+	ret
+.L31:
+	
+__LKAS_step_function_end:
+	.size	LKAS_step,__LKAS_step_function_end-LKAS_step
+.L23:
+	; End of function
+	
+	.sdecl	'.text.LKAS.LKAS_initialize',code,cluster('LKAS_initialize')
+	.sect	'.text.LKAS.LKAS_initialize'
+	.align	2
+	
+	.global	LKAS_initialize
+; Function LKAS_initialize
+.L9:
+LKAS_initialize:	.type	func
+	ret
+.L30:
+	
+__LKAS_initialize_function_end:
+	.size	LKAS_initialize,__LKAS_initialize_function_end-LKAS_initialize
+.L18:
+	; End of function
+	
+	.sdecl	'.bss.LKAS.rtDW1',data,cluster('rtDW1')
+	.sect	'.bss.LKAS.rtDW1'
+	.global	rtDW1
+	.align	4
+rtDW1:	.type	object
+	.size	rtDW1,8
+	.space	8
+	.sdecl	'.bss.LKAS.rtU1',data,cluster('rtU1')
+	.sect	'.bss.LKAS.rtU1'
+	.global	rtU1
+	.align	2
+rtU1:	.type	object
+	.size	rtU1,4
+	.space	4
+	.sdecl	'.bss.LKAS.rtY1',data,cluster('rtY1')
+	.sect	'.bss.LKAS.rtY1'
+	.global	rtY1
+	.align	2
+rtY1:	.type	object
+	.size	rtY1,4
+	.space	4
+	.calls	'LKAS_step','',0
+	.calls	'LKAS_initialize','',0
+	.sdecl	'.debug_info',debug
+	.sect	'.debug_info'
+.L11:
+	.word	431
+	.half	3
+	.word	.L12
+	.byte	4
+.L10:
+	.byte	1
+	.byte	'../ap/core/LKAS.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\USER\\Downloads\\AdvancedDriverAssistanceSystem\\code\\template\\tc275\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L13
+.L32:
+	.byte	2
+	.byte	'float',0,4,4,3,1,4
+	.word	222
+	.byte	5
+	.byte	'__codeptr',0,1,1,1
+	.word	224
+	.byte	5
+	.byte	'real_T',0,2,67,16
+	.word	213
+	.byte	2
+	.byte	'char',0,1,6,5
+	.byte	'char_T',0,2,74,14
+	.word	262
+.L35:
+	.byte	6,3,30,9,8,7
+	.byte	'Integrator_DSTATE',0
+	.word	213
+	.byte	4,2,35,0,7
+	.byte	'Filter_DSTATE',0
+	.word	213
+	.byte	4,2,35,4,0,5
+	.byte	'DW1',0,3,33,3
+	.word	285
+.L36:
+	.byte	6,3,36,9,4,7
+	.byte	'heading_error',0
+	.word	213
+	.byte	4,2,35,0,0,5
+	.byte	'ExtU1',0,3,38,3
+	.word	353
+.L37:
+	.byte	6,3,41,9,4,7
+	.byte	'yaw_rate',0
+	.word	213
+	.byte	4,2,35,0,0,5
+	.byte	'ExtY1',0,3,43,3
+	.word	396
+	.byte	0
+	.sdecl	'.debug_abbrev',debug
+	.sect	'.debug_abbrev'
+.L12:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,36,0,3,8,11,15,62,15,0,0,3,21,0,54,15,0,0,4,15,0,73,19
+	.byte	0,0,5,22,0,3,8,58,15,59,15,57,15,73,19,0,0,6,19,1,58,15,59,15,57,15,11,15,0,0,7,13,0,3,8,73,19,11,15,56
+	.byte	9,0,0,0
+	.sdecl	'.debug_line',debug
+	.sect	'.debug_line'
+.L13:
+	.word	.L42-.L41
+.L41:
+	.half	3
+	.word	.L44-.L43
+.L43:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../ap/core/LKAS.c',0,0,0,0
+	.byte	'..\\ap\\core\\rtwtypes.h',0,0,0,0
+	.byte	'..\\ap\\core\\LKAS.h',0,0,0,0,0
+.L44:
+.L42:
+	.sdecl	'.debug_info',debug,cluster('LKAS_initialize')
+	.sect	'.debug_info'
+.L14:
+	.word	264
+	.half	3
+	.word	.L15
+	.byte	4,1
+	.byte	'../ap/core/LKAS.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\USER\\Downloads\\AdvancedDriverAssistanceSystem\\code\\template\\tc275\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L17,.L16
+	.byte	2
+	.word	.L10
+	.byte	3
+	.byte	'LKAS_initialize',0,1,81,6,1,1,1
+	.word	.L9,.L30,.L8
+	.byte	4
+	.word	.L9,.L30
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('LKAS_initialize')
+	.sect	'.debug_abbrev'
+.L15:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('LKAS_initialize')
+	.sect	'.debug_line'
+.L16:
+	.word	.L46-.L45
+.L45:
+	.half	3
+	.word	.L48-.L47
+.L47:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../ap/core/LKAS.c',0,0,0,0,0
+.L48:
+	.byte	5,1,7,0,5,2
+	.word	.L9
+	.byte	3,211,0,1,7,9
+	.half	.L18-.L9
+	.byte	0,1,1
+.L46:
+	.sdecl	'.debug_ranges',debug,cluster('LKAS_initialize')
+	.sect	'.debug_ranges'
+.L17:
+	.word	-1,.L9,0,.L18-.L9,0,0
+	.sdecl	'.debug_info',debug,cluster('LKAS_step')
+	.sect	'.debug_info'
+.L19:
+	.word	308
+	.half	3
+	.word	.L20
+	.byte	4,1
+	.byte	'../ap/core/LKAS.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\USER\\Downloads\\AdvancedDriverAssistanceSystem\\code\\template\\tc275\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L22,.L21
+	.byte	2
+	.word	.L10
+	.byte	3
+	.byte	'LKAS_step',0,1,34,6,1,1,1
+	.word	.L7,.L31,.L6
+	.byte	4
+	.word	.L7,.L31
+	.byte	5
+	.byte	'rtb_FilterCoefficient',0,1,36,10
+	.word	.L32,.L33
+	.byte	5
+	.byte	'u0',0,1,37,10
+	.word	.L32,.L34
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('LKAS_step')
+	.sect	'.debug_abbrev'
+.L20:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('LKAS_step')
+	.sect	'.debug_line'
+.L21:
+	.word	.L50-.L49
+.L49:
+	.half	3
+	.word	.L52-.L51
+.L51:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../ap/core/LKAS.c',0,0,0,0,0
+.L52:
+	.byte	5,48,7,0,5,2
+	.word	.L7
+	.byte	3,44,1,5,52,9
+	.half	.L53-.L7
+	.byte	1,5,28,9
+	.half	.L54-.L53
+	.byte	1,5,52,9
+	.half	.L55-.L54
+	.byte	1,5,5,9
+	.half	.L56-.L55
+	.byte	3,1,1,5,10,9
+	.half	.L57-.L56
+	.byte	1,5,67,9
+	.half	.L58-.L57
+	.byte	3,127,1,5,28,9
+	.half	.L59-.L58
+	.byte	3,1,1,5,26,9
+	.half	.L60-.L59
+	.byte	1,5,28,9
+	.half	.L38-.L60
+	.byte	3,7,1,5,32,9
+	.half	.L61-.L38
+	.byte	1,5,9,9
+	.half	.L62-.L61
+	.byte	1,5,49,9
+	.half	.L63-.L62
+	.byte	1,5,54,9
+	.half	.L64-.L63
+	.byte	1,5,47,9
+	.half	.L65-.L64
+	.byte	1,5,74,9
+	.half	.L66-.L65
+	.byte	1,5,12,9
+	.half	.L39-.L66
+	.byte	3,4,1,5,10,9
+	.half	.L67-.L39
+	.byte	1,5,3,9
+	.half	.L68-.L67
+	.byte	1,5,5,7,9
+	.half	.L69-.L68
+	.byte	3,2,1,5,21,9
+	.half	.L70-.L69
+	.byte	1,5,19,9
+	.half	.L71-.L70
+	.byte	1,5,24,9
+	.half	.L72-.L71
+	.byte	1,5,19,9
+	.half	.L2-.L72
+	.byte	3,1,1,5,10,9
+	.half	.L73-.L2
+	.byte	1,5,5,9
+	.half	.L74-.L73
+	.byte	3,5,1,5,19,9
+	.half	.L75-.L74
+	.byte	1,5,25,9
+	.half	.L76-.L75
+	.byte	3,125,1,5,5,9
+	.half	.L4-.L76
+	.byte	1,5,21,9
+	.half	.L77-.L4
+	.byte	1,5,19,9
+	.half	.L78-.L77
+	.byte	1,5,3,9
+	.half	.L3-.L78
+	.byte	3,12,1,5,50,9
+	.half	.L79-.L3
+	.byte	1,5,54,9
+	.half	.L80-.L79
+	.byte	1,5,30,9
+	.half	.L81-.L80
+	.byte	1,5,3,9
+	.half	.L82-.L81
+	.byte	1,5,8,9
+	.half	.L83-.L82
+	.byte	1,5,27,9
+	.half	.L84-.L83
+	.byte	1,5,3,9
+	.half	.L85-.L84
+	.byte	3,3,1,5,26,9
+	.half	.L86-.L85
+	.byte	1,5,3,9
+	.half	.L87-.L86
+	.byte	1,5,8,9
+	.half	.L88-.L87
+	.byte	1,5,23,9
+	.half	.L89-.L88
+	.byte	1,5,1,9
+	.half	.L90-.L89
+	.byte	3,1,1,7,9
+	.half	.L23-.L90
+	.byte	0,1,1
+.L50:
+	.sdecl	'.debug_ranges',debug,cluster('LKAS_step')
+	.sect	'.debug_ranges'
+.L22:
+	.word	-1,.L7,0,.L23-.L7,0,0
+	.sdecl	'.debug_info',debug,cluster('rtDW1')
+	.sect	'.debug_info'
+.L24:
+	.word	232
+	.half	3
+	.word	.L25
+	.byte	4,1
+	.byte	'../ap/core/LKAS.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\USER\\Downloads\\AdvancedDriverAssistanceSystem\\code\\template\\tc275\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L10
+	.byte	3
+	.byte	'rtDW1',0,1,25,5
+	.word	.L35
+	.byte	1,5,3
+	.word	rtDW1
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('rtDW1')
+	.sect	'.debug_abbrev'
+.L25:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('rtU1')
+	.sect	'.debug_info'
+.L26:
+	.word	231
+	.half	3
+	.word	.L27
+	.byte	4,1
+	.byte	'../ap/core/LKAS.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\USER\\Downloads\\AdvancedDriverAssistanceSystem\\code\\template\\tc275\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L10
+	.byte	3
+	.byte	'rtU1',0,1,28,7
+	.word	.L36
+	.byte	1,5,3
+	.word	rtU1
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('rtU1')
+	.sect	'.debug_abbrev'
+.L27:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('rtY1')
+	.sect	'.debug_info'
+.L28:
+	.word	231
+	.half	3
+	.word	.L29
+	.byte	4,1
+	.byte	'../ap/core/LKAS.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\USER\\Downloads\\AdvancedDriverAssistanceSystem\\code\\template\\tc275\\TriCore Debug (TASKING)\\',0
+	.byte	12,1,2
+	.word	.L10
+	.byte	3
+	.byte	'rtY1',0,1,31,7
+	.word	.L37
+	.byte	1,5,3
+	.word	rtY1
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('rtY1')
+	.sect	'.debug_abbrev'
+.L29:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_loc',debug,cluster('LKAS_initialize')
+	.sect	'.debug_loc'
+.L8:
+	.word	-1,.L9,0,.L30-.L9
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('LKAS_step')
+	.sect	'.debug_loc'
+.L6:
+	.word	-1,.L7,0,.L31-.L7
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L33:
+	.word	-1,.L7,.L38-.L7,.L31-.L7
+	.half	1
+	.byte	82
+	.word	0,0
+.L34:
+	.word	-1,.L7,.L39-.L7,.L40-.L7
+	.half	5
+	.byte	144,32,157,32,0
+	.word	0,0
+	.sdecl	'.debug_frame',debug
+	.sect	'.debug_frame'
+.L91:
+	.word	48
+	.word	-1
+	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
+	.byte	8,39
+	.sdecl	'.debug_frame',debug,cluster('LKAS_step')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L91,.L7,.L31-.L7
+	.byte	8,19,8,20,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('LKAS_initialize')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L91,.L9,.L30-.L9
+	.byte	8,18,8,19,8,20,8,21,8,22,8,23
+	; Module end

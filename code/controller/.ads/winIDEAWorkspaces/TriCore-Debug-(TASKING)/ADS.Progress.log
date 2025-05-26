@@ -1,4 +1,8 @@
-LOADING	C:\Users\USER\source\vscode\AdvancedDriverAssistanceSystem\code\controller\TriCore Debug (TASKING)\controller.elf
+
+
+
+LOADING	C:\Users\USER\Downloads\AdvancedDriverAssistanceSystem\code\template\tc275\TriCore Debug (TASKING)\test.elf
+
 EMULATION	Probe - System; Root
 EMULATION	Initial debug frequency set
 EMULATION	Asserting reset
@@ -11,6 +15,8 @@ EMULATION	Final debug frequency set
 EMULATION	SoC ID match OK
 SoC	Detected device: TC270 series, rev. DC
 EMULATION	STARTED
-PROGRAMMING 	10281 bytes
-PROGRAMMING	Infineon TC27x_PFLASH_4MB (3 sectors)
+
+PROGRAMMING 	26789 bytes
+PROGRAMMING	Infineon TC27x_PFLASH_4MB (4 sectors)
+
 EMULATION	END - Without cleanup

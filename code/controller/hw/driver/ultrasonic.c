@@ -45,7 +45,7 @@
 const int trig_pins[] = {0, 2, 4};
 const int echo_pins[] = {1, 3, 5};
 
-boolean flag;
+boolean flag1;
 boolean flag2;
 float distance_cm;
 
@@ -79,21 +79,21 @@ float ultrasonic_read_distance(int num){
 
     // 10us Trigger
     IfxPort_setPinHigh(TRIG_PORT, TRIG_PIN);
-    waitTime(IfxStm_getTicksFromMicroseconds(BSP_DEFAULT_TIMER, 10));
+    //waitTime(IfxStm_getTicksFromMicroseconds(BSP_DEFAULT_TIMER, 10));
     IfxPort_setPinLow(TRIG_PORT, TRIG_PIN);
 
     // Echo 핀 상승엣지 대기
-    flag = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
-    while (flag == 0){
-        flag = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
+    flag1 = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
+    while (flag1 == 0){
+        flag1 = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
     }
 
     uint64 start = IfxStm_get(BSP_DEFAULT_TIMER);
 
     // Echo 핀 하강엣지 대기
-    flag = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
-    while (flag == 1){
-        flag = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
+    flag1 = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
+    while (flag1 == 1){
+        flag1 = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
     }
 
     uint64 end = IfxStm_get(BSP_DEFAULT_TIMER);
