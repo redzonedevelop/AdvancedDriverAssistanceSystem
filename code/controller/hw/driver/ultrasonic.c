@@ -1,5 +1,5 @@
 /**********************************************************************************************************************
- * \file ultrasound.h
+ * \file ultrasound.c
  * \copyright Copyright (C) Infineon Technologies AG 2019
  * 
  * Use of this file is subject to the terms of use agreed between (i) you or the company in which ordinary course of 
@@ -25,27 +25,30 @@
  * IN THE SOFTWARE.
  *********************************************************************************************************************/
 
-#ifndef COMMON_HW_INCLUDE_ULTRASOUND_H_
-#define COMMON_HW_INCLUDE_ULTRASOUND_H_
 
 /*********************************************************************************************************************/
 /*-----------------------------------------------------Includes------------------------------------------------------*/
 /*********************************************************************************************************************/
-#include "Ifx_Types.h"
-#include "IfxStm.h"
+#include <ultrasonic.h>
+#include "IfxPort.h"
+#include "Bsp.h"
 
 /*********************************************************************************************************************/
 /*------------------------------------------------------Macros-------------------------------------------------------*/
 /*********************************************************************************************************************/
+#define TRIG_PORT   &MODULE_P02
+#define ECHO_PORT   &MODULE_P02
 
 /*********************************************************************************************************************/
 /*-------------------------------------------------Global variables--------------------------------------------------*/
 /*********************************************************************************************************************/
+const int trig_pins[] = {0, 2, 4};
+const int echo_pins[] = {1, 3, 5};
 
-/*********************************************************************************************************************/
-/*-------------------------------------------------Data Structures---------------------------------------------------*/
-/*********************************************************************************************************************/
- 
+boolean flag;
+boolean flag2;
+float distance_cm;
+
 /*********************************************************************************************************************/
 /*--------------------------------------------Private Variables/Constants--------------------------------------------*/
 /*********************************************************************************************************************/
@@ -53,9 +56,60 @@
 /*********************************************************************************************************************/
 /*------------------------------------------------Function Prototypes------------------------------------------------*/
 /*********************************************************************************************************************/
-void ultrasound_init(void);
-float read_distance(unsigned char num);
-float32 convert_ticks_to_us(Ifx_STM *stm, uint64 ticks);
 
+/*********************************************************************************************************************/
+/*---------------------------------------------Function Implementations----------------------------------------------*/
+/*********************************************************************************************************************/
+void ultrasonic_init(){
+    IfxPort_setPinModeOutput(TRIG_PORT, 0, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    IfxPort_setPinLow(TRIG_PORT, 0);
+    IfxPort_setPinModeOutput(TRIG_PORT, 2, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    IfxPort_setPinLow(TRIG_PORT, 2);
+    IfxPort_setPinModeOutput(TRIG_PORT, 4, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    IfxPort_setPinLow(TRIG_PORT, 4);
 
-#endif /* COMMON_HW_INCLUDE_ULTRASOUND_H_ */
+    IfxPort_setPinModeInput(ECHO_PORT, 1, IfxPort_InputMode_pullDown);
+    IfxPort_setPinModeInput(ECHO_PORT, 3, IfxPort_InputMode_pullDown);
+    IfxPort_setPinModeInput(ECHO_PORT, 5, IfxPort_InputMode_pullDown);
+}
+
+float ultrasonic_read_distance(int num){
+    unsigned char TRIG_PIN = trig_pins[num];
+    unsigned char ECHO_PIN = echo_pins[num];
+
+    // 10us Trigger
+    IfxPort_setPinHigh(TRIG_PORT, TRIG_PIN);
+    waitTime(IfxStm_getTicksFromMicroseconds(BSP_DEFAULT_TIMER, 10));
+    IfxPort_setPinLow(TRIG_PORT, TRIG_PIN);
+
+    // Echo 핀 상승엣지 대기
+    flag = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
+    while (flag == 0){
+        flag = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
+    }
+
+    uint64 start = IfxStm_get(BSP_DEFAULT_TIMER);
+
+    // Echo 핀 하강엣지 대기
+    flag = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
+    while (flag == 1){
+        flag = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
+    }
+
+    uint64 end = IfxStm_get(BSP_DEFAULT_TIMER);
+    uint64 duration_ticks = end - start;
+
+    // 시간(μs)로 변환
+    float duration_us = convert_ticks_to_us(BSP_DEFAULT_TIMER, duration_ticks);
+
+    // 거리 계산
+    distance_cm = duration_us / 58.0f;
+
+    return distance_cm;
+}
+
+float32 convert_ticks_to_us(Ifx_STM *stm, uint64 ticks)
+{
+    float32 freqHz = (float32)IfxStm_getFrequency(stm);  // 예: 100 MHz
+    return (float32)ticks * 1e6f / freqHz;
+}

@@ -57,7 +57,7 @@ void hw_init(void)
     /* 1) BSP 초기화 (클럭, WDT, STM 등) */
     bsp_init();
     led_init();
-    ultrasound_init();
-    uart_init();
+    ultrasonic_init();
+//    uart_init();
 
 }

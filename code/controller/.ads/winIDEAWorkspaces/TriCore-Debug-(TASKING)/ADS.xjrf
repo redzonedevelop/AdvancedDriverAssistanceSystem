@@ -146,7 +146,7 @@
            <Area></Area>
            <Load>true</Load>
            <OverrideMemArea>false</OverrideMemArea>
-           <Path>..\..\..\TriCore Debug (TASKING)\test.elf</Path>
+           <Path>..\..\..\TriCore Debug (TASKING)\controller.elf</Path>
            <UseDefaultMSID>true</UseDefaultMSID>
            <MSID>
             <App>0x0</App>
@@ -242,7 +242,7 @@
            <Area></Area>
            <Load>true</Load>
            <OverrideMemArea>false</OverrideMemArea>
-           <Path>..\..\..\TriCore Debug (TASKING)\test.elf</Path>
+           <Path>..\..\..\TriCore Debug (TASKING)\controller.elf</Path>
            <UseDefaultMSID>true</UseDefaultMSID>
            <MSID>
             <App>0x0</App>
@@ -592,7 +592,7 @@
         <Count>0</Count>
         <Enabled>true</Enabled>
         <Expression></Expression>
-        <Location>&quot;..\..\..\hw\driver\led.c&quot;::95</Location>
+        <Location>&quot;..\..\..\ap\ap.c&quot;::72</Location>
         <ProcessFilter></ProcessFilter>
        </__.0>
       </BPs>

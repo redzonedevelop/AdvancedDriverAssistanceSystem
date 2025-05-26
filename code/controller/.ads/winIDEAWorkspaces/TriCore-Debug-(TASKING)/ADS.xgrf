@@ -29,12 +29,52 @@
         </__.1>
         <__.2>
          <BookmarkList></BookmarkList>
+         <CaretPos>5591</CaretPos>
+         <Encoding>8</Encoding>
+         <FileName>C:\Users\USER\source\vscode\AdvancedDriverAssistanceSystem\code\controller\hw\driver\ultrasonic.c</FileName>
+         <FileType>1</FileType>
+         <ScrollPos>64</ScrollPos>
+        </__.2>
+        <__.3>
+         <BookmarkList></BookmarkList>
          <CaretPos>5139</CaretPos>
          <Encoding>8</Encoding>
          <FileName>C:\Users\USER\AURIX-v1.10.6-workspace\test\hw\driver\led.c</FileName>
          <FileType>1</FileType>
          <ScrollPos>58</ScrollPos>
-        </__.2>
+        </__.3>
+        <__.4>
+         <BookmarkList></BookmarkList>
+         <CaretPos>4443</CaretPos>
+         <Encoding>8</Encoding>
+         <FileName>C:\Users\USER\source\vscode\AdvancedDriverAssistanceSystem\code\controller\ap\ap.c</FileName>
+         <FileType>1</FileType>
+         <ScrollPos>46</ScrollPos>
+        </__.4>
+        <__.5>
+         <BookmarkList></BookmarkList>
+         <CaretPos>5594</CaretPos>
+         <Encoding>8</Encoding>
+         <FileName>C:\Users\USER\source\vscode\AdvancedDriverAssistanceSystem\code\controller\hw\driver\ultrasound.c</FileName>
+         <FileType>1</FileType>
+         <ScrollPos>64</ScrollPos>
+        </__.5>
+        <__.6>
+         <BookmarkList></BookmarkList>
+         <CaretPos>2096</CaretPos>
+         <Encoding>8</Encoding>
+         <FileName>C:\Users\USER\source\vscode\AdvancedDriverAssistanceSystem\code\controller\Cpu0_Main.c</FileName>
+         <FileType>1</FileType>
+         <ScrollPos>10</ScrollPos>
+        </__.6>
+        <__.7>
+         <BookmarkList></BookmarkList>
+         <CaretPos>0</CaretPos>
+         <Encoding>8</Encoding>
+         <FileName>C:\Users\USER\source\vscode\AdvancedDriverAssistanceSystem\code\controller\hw\driver\led.c</FileName>
+         <FileType>1</FileType>
+         <ScrollPos>0</ScrollPos>
+        </__.7>
        </EditorPersist>
       </EditorPersist>
      </REG_ROOT>
@@ -109,13 +149,17 @@
         <ViewType>Document</ViewType>
        </__.5>
        <__.6>
-        <ViewId>1</ViewId>
-        <ViewType>Output_Progress</ViewType>
+        <ViewId>8</ViewId>
+        <ViewType>Document</ViewType>
        </__.6>
        <__.7>
+        <ViewId>1</ViewId>
+        <ViewType>Output_Progress</ViewType>
+       </__.7>
+       <__.8>
         <ViewId>0</ViewId>
         <ViewType>Symbols</ViewType>
-       </__.7>
+       </__.8>
       </AllViewBaseData>
       <DissasemblyViews>
        <__.0>
@@ -156,6 +200,11 @@
         <ViewId>7</ViewId>
         <ViewType>Document</ViewType>
        </__.2>
+       <__.3>
+        <RelativePath>..\..\..\hw\driver\ultrasonic.c</RelativePath>
+        <ViewId>8</ViewId>
+        <ViewType>Document</ViewType>
+       </__.3>
       </DocumentViews>
       <OtherViews>
        <__.0>
@@ -277,7 +326,7 @@
       <PrimaryDocumentPaneId>5</PrimaryDocumentPaneId>
       <Frames>
        <__.0>
-        <FocusedViewId>7</FocusedViewId>
+        <FocusedViewId>6</FocusedViewId>
         <FrameState>3</FrameState>
         <IsPrimary>true</IsPrimary>
         <Bounds>
@@ -333,7 +382,7 @@
                <IsPinned>false</IsPinned>
                <IsTabbed>true</IsTabbed>
                <Orientation>None</Orientation>
-               <TopTabViewId>7</TopTabViewId>
+               <TopTabViewId>6</TopTabViewId>
                <ViewId>-1</ViewId>
                <Children>
                 <__.0>
@@ -366,6 +415,16 @@
                  <TopTabViewId>-1</TopTabViewId>
                  <ViewId>7</ViewId>
                 </__.2>
+                <__.3>
+                 <DockType>Document</DockType>
+                 <Extent>1</Extent>
+                 <IsDocumentPane>false</IsDocumentPane>
+                 <IsPinned>false</IsPinned>
+                 <IsTabbed>false</IsTabbed>
+                 <Orientation>None</Orientation>
+                 <TopTabViewId>-1</TopTabViewId>
+                 <ViewId>8</ViewId>
+                </__.3>
                </Children>
               </__.1>
              </Children>
@@ -443,10 +502,6 @@
       </FindInFilesDialogData>
      </GlobalData>
      <History>
-      <ComboBox>
-       <ComboBoxes>
-       </ComboBoxes>
-      </ComboBox>
      </History>
      <Options>
       <CallstackWindow>
