@@ -1,5 +1,5 @@
 /**********************************************************************************************************************
- * \file ap.c
+ * \file ap_def.h
  * \copyright Copyright (C) Infineon Technologies AG 2019
  * 
  * Use of this file is subject to the terms of use agreed between (i) you or the company in which ordinary course of 
@@ -25,25 +25,81 @@
  * IN THE SOFTWARE.
  *********************************************************************************************************************/
 
+#ifndef AP_AP_DEF_H_
+#define AP_AP_DEF_H_
 
 /*********************************************************************************************************************/
 /*-----------------------------------------------------Includes------------------------------------------------------*/
 /*********************************************************************************************************************/
-
-#include "ap.h"
+#include "hw.h"
 
 /*********************************************************************************************************************/
 /*------------------------------------------------------Macros-------------------------------------------------------*/
 /*********************************************************************************************************************/
+#define ULTRA_LEFT      0
+#define ULTRA_CENTER    1
+#define ULTRA_RIGHT     2
 
 /*********************************************************************************************************************/
 /*-------------------------------------------------Global variables--------------------------------------------------*/
 /*********************************************************************************************************************/
 
-adas_controller_t adas_controller;
-float ultra_dis1;
-float ultra_dis2;
-float ultra_dis3;
+/*********************************************************************************************************************/
+/*-------------------------------------------------Data Structures---------------------------------------------------*/
+/*********************************************************************************************************************/
+ 
+//typedef struct
+//{
+//        uint32 left;
+//        uint32 front;
+//        uint32 right;
+//} ultrasonic_t;
+
+typedef struct
+{
+        boolean left;
+        boolean right;
+}signal_light_btn_t;
+
+typedef struct
+{
+        uint8 camera;
+        int ultrasonic[3];
+        signal_light_btn_t signal_light_btn;
+} adas_sensor_t;
+
+typedef struct
+{
+        int yaw_rate;
+        int longitude;
+        int longiude_feedback;
+} motor_control_t;
+
+typedef struct
+{
+        boolean left;
+        boolean right;
+} signal_light_t;
+
+typedef struct
+{
+        signal_light_t signal_light;
+        boolean error;
+} led_control_t;
+
+typedef struct
+{
+        motor_control_t motor_control;
+        led_control_t led_control;
+} adas_actuator_t;
+
+typedef struct
+{
+        adas_sensor_t adas_sensor;
+        adas_actuator_t adas_actuator;
+} adas_controller_t;
+
+extern adas_controller_t adas_controller;
 
 /*********************************************************************************************************************/
 /*--------------------------------------------Private Variables/Constants--------------------------------------------*/
@@ -53,30 +109,5 @@ float ultra_dis3;
 /*------------------------------------------------Function Prototypes------------------------------------------------*/
 /*********************************************************************************************************************/
 
-/*********************************************************************************************************************/
-/*---------------------------------------------Function Implementations----------------------------------------------*/
-/*********************************************************************************************************************/
 
-
-void ap_init(void)
-{
-
-}
-
-void ap_main(void)
-{
-
-  while(1)
-  {
-      uint32 tick = 5000;
-      led_toggle(_DEF_LED1);
-      set_car_distance(ULTRA_LEFT);
-      set_car_distance(ULTRA_CENTER);
-      set_car_distance(ULTRA_RIGHT);
-      ultra_dis1 = get_car_distance(ULTRA_LEFT);    // 좌측
-      ultra_dis2 = get_car_distance(ULTRA_CENTER);  // 중앙
-      ultra_dis3 = get_car_distance(ULTRA_RIGHT);   // 우측
-      while(tick--);
-  }
-}
-
+#endif /* AP_AP_DEF_H_ */

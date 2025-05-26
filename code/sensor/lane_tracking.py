@@ -136,7 +136,7 @@ if ser.isOpen():
             newwarp = cv2.warpPerspective(color_warp, Minv, (frame.shape[1], frame.shape[0]))
             result = cv2.addWeighted(frame, 1, newwarp, 0.3, 0)
 
-            # ▶ 중점 표시시
+            # ▶ 중점 표시
             y_pos = frame.shape[0] - 10
             cv2.circle(result, (int(lane_center), y_pos), 5, (0, 0, 255), -1)
             cv2.circle(result, (int(frame_center), y_pos), 5, (255, 0, 0), -1)
