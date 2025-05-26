@@ -32,8 +32,15 @@
 /*-----------------------------------------------------Includes------------------------------------------------------*/
 /*********************************************************************************************************************/
 
+#include <ultrasonic.h>
 #include "hw.h"
+<<<<<<< Updated upstream
 
+=======
+#include "scheduler.h"
+#include "ACC.h"
+#include "LKAS.h"
+>>>>>>> Stashed changes
 #include "ap_def.h"
 #include "car_distance.h"
 
@@ -63,7 +70,11 @@
 void ap_init(void);
 void ap_main(void);
 void scheduler_init(void);
+<<<<<<< Updated upstream
 float read_distance(unsigned char num);
+=======
+float ultrasonic_read_distance(int num);
+>>>>>>> Stashed changes
 
 
 #endif /* AP_AP_H_ */

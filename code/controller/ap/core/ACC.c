@@ -65,9 +65,15 @@ void ACC_step(void)
    *  Constant: '<Root>/target_speed'
    *  Sum: '<Root>/con-tar'
    */
+<<<<<<< Updated upstream
   if (rtb_controlled_speed - 1.0/*target speed*/ > 0.0) {//target speed 값 이상으로 올라가지않음
     /* Outport: '<Root>/control_speed' */
     rtY.control_speed = 1.0;
+=======
+  if (rtb_controlled_speed - 0.5/*target speed*/ > 0.0) {//target speed 값 이상으로 올라가지않음
+    /* Outport: '<Root>/control_speed' */
+    rtY.control_speed = 0.5;
+>>>>>>> Stashed changes
   } else {
     /* Outport: '<Root>/control_speed' */
     rtY.control_speed = rtb_controlled_speed;

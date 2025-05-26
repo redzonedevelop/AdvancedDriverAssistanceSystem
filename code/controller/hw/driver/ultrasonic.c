@@ -73,37 +73,59 @@ void ultrasonic_init(){
     IfxPort_setPinModeInput(ECHO_PORT, 5, IfxPort_InputMode_pullDown);
 }
 
-float ultrasonic_read_distance(int num){
+float ultrasonic_read_distance(int num) {
     unsigned char TRIG_PIN = trig_pins[num];
     unsigned char ECHO_PIN = echo_pins[num];
+    uint8 flag;
 
-    // 10us Trigger
+    const float TIMEOUT_US = 30000.0f;  // 30ms timeout
+    const uint64 TIMEOUT_TICKS = IfxStm_getTicksFromMicroseconds(BSP_DEFAULT_TIMER, TIMEOUT_US);
+
+    // 10us Trigger pulse
     IfxPort_setPinHigh(TRIG_PORT, TRIG_PIN);
     //waitTime(IfxStm_getTicksFromMicroseconds(BSP_DEFAULT_TIMER, 10));
     IfxPort_setPinLow(TRIG_PORT, TRIG_PIN);
 
+<<<<<<< Updated upstream
     // Echo 핀 상승엣지 대기
     flag1 = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
     while (flag1 == 0){
         flag1 = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
+=======
+    // 1. Echo rising edge 대기 (timeout 포함)
+    uint64 wait_start = IfxStm_get(BSP_DEFAULT_TIMER);
+    while ((flag = IfxPort_getPinState(ECHO_PORT, ECHO_PIN)) == 0) {
+        if ((IfxStm_get(BSP_DEFAULT_TIMER) - wait_start) > TIMEOUT_TICKS) {
+            return -1.0f;  // 타임아웃 시 에러 값 리턴
+        }
+>>>>>>> Stashed changes
     }
 
-    uint64 start = IfxStm_get(BSP_DEFAULT_TIMER);
+    uint64 echo_start = IfxStm_get(BSP_DEFAULT_TIMER);
 
+<<<<<<< Updated upstream
     // Echo 핀 하강엣지 대기
     flag1 = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
     while (flag1 == 1){
         flag1 = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
+=======
+    // 2. Echo falling edge 대기 (timeout 포함)
+    wait_start = echo_start;
+    while ((flag = IfxPort_getPinState(ECHO_PORT, ECHO_PIN)) == 1) {
+        if ((IfxStm_get(BSP_DEFAULT_TIMER) - wait_start) > TIMEOUT_TICKS) {
+            return -1.0f;  // 타임아웃 시 에러 값 리턴
+        }
+>>>>>>> Stashed changes
     }
 
-    uint64 end = IfxStm_get(BSP_DEFAULT_TIMER);
-    uint64 duration_ticks = end - start;
+    uint64 echo_end = IfxStm_get(BSP_DEFAULT_TIMER);
+    uint64 duration_ticks = echo_end - echo_start;
 
     // 시간(μs)로 변환
     float duration_us = convert_ticks_to_us(BSP_DEFAULT_TIMER, duration_ticks);
 
     // 거리 계산
-    distance_cm = duration_us / 58.0f;
+    float distance_cm = duration_us / 58.0f;
 
     return distance_cm;
 }
