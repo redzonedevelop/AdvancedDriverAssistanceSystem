@@ -4,7 +4,7 @@ import serial
 import time
 from picamera2 import Picamera2
 
-# ▶ UART 패킷 생성성
+# ▶ UART 패킷 생성
 def make_packet(value: float) -> bytes:
     scaled = value / 3
     scaled = int(scaled)
@@ -40,11 +40,11 @@ if ser.isOpen():
         # ▶ 전처리 (그레이 + 블러 + 이진화)
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         blur = cv2.GaussianBlur(gray, (5, 5), 0)
-        _, binary = cv2.threshold(blur, 100, 255, cv2.THRESH_BINARY)
+        _, binary = cv2.threshold(blur, 160, 255, cv2.THRESH_BINARY)
 
         # ▶ 원근 변환
-        src = np.float32([[150, 180], [570, 180], [40, 480], [640, 480]])
-        dst = np.float32([[0, 0], [640, 0], [0, 480], [640, 480]])
+        src = np.float32([[100, 180], [540, 180], [0, 480], [640, 480]])
+        dst = np.float32([[100, 0], [540, 0], [100, 480], [540, 480]])
         M = cv2.getPerspectiveTransform(src, dst)
         Minv = cv2.getPerspectiveTransform(dst, src)
         warped = cv2.warpPerspective(binary, M, (640, 480))
@@ -136,6 +136,11 @@ if ser.isOpen():
             newwarp = cv2.warpPerspective(color_warp, Minv, (frame.shape[1], frame.shape[0]))
             result = cv2.addWeighted(frame, 1, newwarp, 0.3, 0)
 
+            # ▶ 중점 표시
+            y_pos = frame.shape[0] - 10
+            cv2.circle(result, (int(lane_center), y_pos), 5, (0, 0, 255), -1)
+            cv2.circle(result, (int(frame_center), y_pos), 5, (255, 0, 0), -1)
+
             # ▶ 텍스트 표시
             cv2.putText(result, f'Radius: {avg_curve:.2f} m', (30, 40),
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
@@ -144,9 +149,17 @@ if ser.isOpen():
 
             cv2.imshow("Lane Detection", result)
 
-            # ▶ UART 전송
+            # ▶ cmd 출력
+            if avg_curve > 4000:
+                curve_type = "Straight"
+            elif avg_curve > 500:
+                curve_type = "Gentle"
+            else:
+                curve_type = "Sharp"
             data_str = f"{curve_type},{lane_center:.1f},{frame_center:.1f}\n"
             print(data_str)
+
+            # ▶ UART 전송
             ser.write(to_signed_byte(frame_center - lane_center))
         else:
             cv2.imshow("Lane Detection", out_img)
