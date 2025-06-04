@@ -54,6 +54,6 @@ void set_car_distance(int count){
     adas_controller.adas_sensor.ultrasonic[count] = ultrasonic_read_distance(count);
 }
 
-int get_car_distance(int count){
+float get_car_distance(int count){
     return adas_controller.adas_sensor.ultrasonic[count];
 }

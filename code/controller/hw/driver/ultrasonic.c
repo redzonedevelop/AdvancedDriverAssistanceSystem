@@ -36,19 +36,20 @@
 /*********************************************************************************************************************/
 /*------------------------------------------------------Macros-------------------------------------------------------*/
 /*********************************************************************************************************************/
-#define TRIG_PORT   &MODULE_P02
+
+
 #define ECHO_PORT   &MODULE_P02
 
 /*********************************************************************************************************************/
 /*-------------------------------------------------Global variables--------------------------------------------------*/
 /*********************************************************************************************************************/
-const int trig_pins[] = {0, 2, 4};
+const int trig_pins[] = {0, 4, 4};
 const int echo_pins[] = {1, 3, 5};
 
 boolean flag;
 boolean flag2;
 float distance_cm;
-
+Ifx_P* TRIG_PORT = &MODULE_P02;
 /*********************************************************************************************************************/
 /*--------------------------------------------Private Variables/Constants--------------------------------------------*/
 /*********************************************************************************************************************/
@@ -61,12 +62,12 @@ float distance_cm;
 /*---------------------------------------------Function Implementations----------------------------------------------*/
 /*********************************************************************************************************************/
 void ultrasonic_init(){
-    IfxPort_setPinModeOutput(TRIG_PORT, 0, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-    IfxPort_setPinLow(TRIG_PORT, 0);
-    IfxPort_setPinModeOutput(TRIG_PORT, 2, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-    IfxPort_setPinLow(TRIG_PORT, 2);
-    IfxPort_setPinModeOutput(TRIG_PORT, 4, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-    IfxPort_setPinLow(TRIG_PORT, 4);
+    IfxPort_setPinModeOutput(&MODULE_P02, 0, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    IfxPort_setPinLow(&MODULE_P02, 0);
+    IfxPort_setPinModeOutput(&MODULE_P10, 4, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    IfxPort_setPinLow(&MODULE_P10, 4);
+    IfxPort_setPinModeOutput(&MODULE_P02, 4, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    IfxPort_setPinLow(&MODULE_P02, 4);
 
     IfxPort_setPinModeInput(ECHO_PORT, 1, IfxPort_InputMode_pullDown);
     IfxPort_setPinModeInput(ECHO_PORT, 3, IfxPort_InputMode_pullDown);
@@ -76,7 +77,12 @@ void ultrasonic_init(){
 float ultrasonic_read_distance(int num){
     unsigned char TRIG_PIN = trig_pins[num];
     unsigned char ECHO_PIN = echo_pins[num];
-
+    if (num == 1){
+        TRIG_PORT = &MODULE_P10;
+    }
+    else{
+        TRIG_PORT = &MODULE_P02;
+    }
     // 10us Trigger
     IfxPort_setPinHigh(TRIG_PORT, TRIG_PIN);
     waitTime(IfxStm_getTicksFromMicroseconds(BSP_DEFAULT_TIMER, 10));

@@ -582,20 +582,6 @@
     </Mode>
     <Op_System>
      <Debug>
-      <BPs>
-       <__.0>
-        <ActionEnabled>false</ActionEnabled>
-        <ActionParams></ActionParams>
-        <ActionScript></ActionScript>
-        <ActionShow>false</ActionShow>
-        <Condition>false</Condition>
-        <Count>0</Count>
-        <Enabled>true</Enabled>
-        <Expression></Expression>
-        <Location>&quot;..\..\..\ap\ap.c&quot;::72</Location>
-        <ProcessFilter></ProcessFilter>
-       </__.0>
-      </BPs>
       <Processes>
        <__.0>
         <URL>App/SMP</URL>
@@ -3926,10 +3912,18 @@
            <Enabled>false</Enabled>
            <Name>HSSL</Name>
           </__.108>
+          <__.109>
+           <Enabled>true</Enabled>
+           <Name>HSS</Name>
+          </__.109>
           <__.10>
            <Enabled>false</Enabled>
            <Name>QSPI4</Name>
           </__.10>
+          <__.110>
+           <Enabled>true</Enabled>
+           <Name>DMA</Name>
+          </__.110>
           <__.11>
            <Enabled>false</Enabled>
            <Name>QSPI5</Name>
