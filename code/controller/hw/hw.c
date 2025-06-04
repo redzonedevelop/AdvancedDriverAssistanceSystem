@@ -56,24 +56,14 @@ void hw_init(void)
 {
     /* 1) BSP 초기화 (클럭, WDT, STM 등) */
     bsp_init();
-<<<<<<< Updated upstream
 
-    led_init();
-=======
     //led_init();
     init_GPIOs();
     initMultican();
     init_ASCLIN_UART();
->>>>>>> Stashed changes
-    ultrasonic_init();
-//    uart_init();
 
-//    led_init();
-//    uart_init();
-    init_GPIOs();
-    init_ASCLIN_UART();
-    motor_init();
-    initMultican();
+    ultrasonic_init();
+
 
 
 }

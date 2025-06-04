@@ -54,7 +54,7 @@
 /*********************************************************************************************************************/
 
 void set_car_distance(int count);
-int get_car_distance(int count);
+float get_car_distance(int count);
 
 
 #endif /* AP_CORE_CAR_DISTANCE_H_ */

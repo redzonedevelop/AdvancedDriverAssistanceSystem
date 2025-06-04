@@ -582,37 +582,6 @@
     </Mode>
     <Op_System>
      <Debug>
-      <BPs>
-       <__.0>
-        <ActionEnabled>false</ActionEnabled>
-        <ActionParams></ActionParams>
-        <ActionScript></ActionScript>
-        <ActionShow>false</ActionShow>
-        <Condition>false</Condition>
-        <Count>0</Count>
-        <Enabled>true</Enabled>
-        <Expression></Expression>
-<<<<<<< Updated upstream
-        <Location>&quot;..\..\..\hw\driver\MULTICAN.c&quot;::66</Location>
-
-=======
-        <Location>&quot;..\..\..\ap\ap.c&quot;::129</Location>
->>>>>>> Stashed changes
-        <ProcessFilter></ProcessFilter>
-       </__.0>
-       <__.1>
-        <ActionEnabled>false</ActionEnabled>
-        <ActionParams></ActionParams>
-        <ActionScript></ActionScript>
-        <ActionShow>false</ActionShow>
-        <Condition>false</Condition>
-        <Count>0</Count>
-        <Enabled>true</Enabled>
-        <Expression></Expression>
-        <Location>&quot;..\..\..\ap\ap.c&quot;::112</Location>
-        <ProcessFilter></ProcessFilter>
-       </__.1>
-      </BPs>
       <Processes>
        <__.0>
         <URL>App/SMP</URL>

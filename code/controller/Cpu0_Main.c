@@ -31,7 +31,8 @@ void core0_main(void)
 {
 
     
-    hw_init();
+
+hw_init();
     ap_init();
     ap_main();
         

@@ -65,15 +65,11 @@ void ACC_step(void)
    *  Constant: '<Root>/target_speed'
    *  Sum: '<Root>/con-tar'
    */
-<<<<<<< Updated upstream
-  if (rtb_controlled_speed - 1.0/*target speed*/ > 0.0) {//target speed 값 이상으로 올라가지않음
+
+  if (rtb_controlled_speed - 0.25/*target speed*/ > 0.0) {//target speed 값 이상으로 올라가지않음
     /* Outport: '<Root>/control_speed' */
-    rtY.control_speed = 1.0;
-=======
-  if (rtb_controlled_speed - 0.5/*target speed*/ > 0.0) {//target speed 값 이상으로 올라가지않음
-    /* Outport: '<Root>/control_speed' */
-    rtY.control_speed = 0.5;
->>>>>>> Stashed changes
+    rtY.control_speed = 0.25;
+
   } else {
     /* Outport: '<Root>/control_speed' */
     rtY.control_speed = rtb_controlled_speed;
@@ -91,8 +87,8 @@ void ACC_step(void)
 void ACC_initialize(void)
 {
   /* InitializeConditions for UnitDelay: '<Root>/before_distance' */
-  rtDW.before_distance_DSTATE = 2;
-  rtU.current_speed = 0;
+  rtDW.before_distance_DSTATE = 1;
+  rtU.current_speed = 0.25;
 }
 
 /*

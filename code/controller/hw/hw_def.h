@@ -47,7 +47,7 @@
 /* --- UART --- */
 #define _USE_HW_UART
 #define     HW_UART_MAX_CH      1    // LED 포트 개수 (_DEF_LED1)
-<<<<<<< Updated upstream
+
 
 /* --- MOTOR --- */
 #define _USE_HW_MOTOR
@@ -56,9 +56,7 @@
 /* --- SCHEDULER --- */
 #define _USE_HW_SCHEDULER
 
-=======
-#define _USE_HW_SCHEDULER
->>>>>>> Stashed changes
+
 
 /*********************************************************************************************************************/
 /*-------------------------------------------------Global variables--------------------------------------------------*/

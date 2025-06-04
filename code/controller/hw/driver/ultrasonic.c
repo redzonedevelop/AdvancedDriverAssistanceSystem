@@ -36,19 +36,20 @@
 /*********************************************************************************************************************/
 /*------------------------------------------------------Macros-------------------------------------------------------*/
 /*********************************************************************************************************************/
-#define TRIG_PORT   &MODULE_P02
+
+
 #define ECHO_PORT   &MODULE_P02
 
 /*********************************************************************************************************************/
 /*-------------------------------------------------Global variables--------------------------------------------------*/
 /*********************************************************************************************************************/
-const int trig_pins[] = {0, 2, 4};
+const int trig_pins[] = {0, 4, 4};
 const int echo_pins[] = {1, 3, 5};
 
-boolean flag1;
+boolean flag;
 boolean flag2;
 float distance_cm;
-
+Ifx_P* TRIG_PORT = &MODULE_P02;
 /*********************************************************************************************************************/
 /*--------------------------------------------Private Variables/Constants--------------------------------------------*/
 /*********************************************************************************************************************/
@@ -61,71 +62,54 @@ float distance_cm;
 /*---------------------------------------------Function Implementations----------------------------------------------*/
 /*********************************************************************************************************************/
 void ultrasonic_init(){
-    IfxPort_setPinModeOutput(TRIG_PORT, 0, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-    IfxPort_setPinLow(TRIG_PORT, 0);
-    IfxPort_setPinModeOutput(TRIG_PORT, 2, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-    IfxPort_setPinLow(TRIG_PORT, 2);
-    IfxPort_setPinModeOutput(TRIG_PORT, 4, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-    IfxPort_setPinLow(TRIG_PORT, 4);
+    IfxPort_setPinModeOutput(&MODULE_P02, 0, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    IfxPort_setPinLow(&MODULE_P02, 0);
+    IfxPort_setPinModeOutput(&MODULE_P10, 4, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    IfxPort_setPinLow(&MODULE_P10, 4);
+    IfxPort_setPinModeOutput(&MODULE_P02, 4, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    IfxPort_setPinLow(&MODULE_P02, 4);
 
     IfxPort_setPinModeInput(ECHO_PORT, 1, IfxPort_InputMode_pullDown);
     IfxPort_setPinModeInput(ECHO_PORT, 3, IfxPort_InputMode_pullDown);
     IfxPort_setPinModeInput(ECHO_PORT, 5, IfxPort_InputMode_pullDown);
 }
 
-float ultrasonic_read_distance(int num) {
+float ultrasonic_read_distance(int num){
     unsigned char TRIG_PIN = trig_pins[num];
     unsigned char ECHO_PIN = echo_pins[num];
-    uint8 flag;
-
-    const float TIMEOUT_US = 30000.0f;  // 30ms timeout
-    const uint64 TIMEOUT_TICKS = IfxStm_getTicksFromMicroseconds(BSP_DEFAULT_TIMER, TIMEOUT_US);
-
-    // 10us Trigger pulse
+    if (num == 1){
+        TRIG_PORT = &MODULE_P10;
+    }
+    else{
+        TRIG_PORT = &MODULE_P02;
+    }
+    // 10us Trigger
     IfxPort_setPinHigh(TRIG_PORT, TRIG_PIN);
-    //waitTime(IfxStm_getTicksFromMicroseconds(BSP_DEFAULT_TIMER, 10));
+    waitTime(IfxStm_getTicksFromMicroseconds(BSP_DEFAULT_TIMER, 10));
     IfxPort_setPinLow(TRIG_PORT, TRIG_PIN);
 
-<<<<<<< Updated upstream
     // Echo 핀 상승엣지 대기
-    flag1 = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
-    while (flag1 == 0){
-        flag1 = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
-=======
-    // 1. Echo rising edge 대기 (timeout 포함)
-    uint64 wait_start = IfxStm_get(BSP_DEFAULT_TIMER);
-    while ((flag = IfxPort_getPinState(ECHO_PORT, ECHO_PIN)) == 0) {
-        if ((IfxStm_get(BSP_DEFAULT_TIMER) - wait_start) > TIMEOUT_TICKS) {
-            return -1.0f;  // 타임아웃 시 에러 값 리턴
-        }
->>>>>>> Stashed changes
+    flag = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
+    while (flag == 0){
+        flag = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
     }
 
-    uint64 echo_start = IfxStm_get(BSP_DEFAULT_TIMER);
+    uint64 start = IfxStm_get(BSP_DEFAULT_TIMER);
 
-<<<<<<< Updated upstream
     // Echo 핀 하강엣지 대기
-    flag1 = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
-    while (flag1 == 1){
-        flag1 = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
-=======
-    // 2. Echo falling edge 대기 (timeout 포함)
-    wait_start = echo_start;
-    while ((flag = IfxPort_getPinState(ECHO_PORT, ECHO_PIN)) == 1) {
-        if ((IfxStm_get(BSP_DEFAULT_TIMER) - wait_start) > TIMEOUT_TICKS) {
-            return -1.0f;  // 타임아웃 시 에러 값 리턴
-        }
->>>>>>> Stashed changes
+    flag = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
+    while (flag == 1){
+        flag = IfxPort_getPinState(ECHO_PORT, ECHO_PIN);
     }
 
-    uint64 echo_end = IfxStm_get(BSP_DEFAULT_TIMER);
-    uint64 duration_ticks = echo_end - echo_start;
+    uint64 end = IfxStm_get(BSP_DEFAULT_TIMER);
+    uint64 duration_ticks = end - start;
 
     // 시간(μs)로 변환
     float duration_us = convert_ticks_to_us(BSP_DEFAULT_TIMER, duration_ticks);
 
     // 거리 계산
-    float distance_cm = duration_us / 58.0f;
+    distance_cm = duration_us / 58.0f;
 
     return distance_cm;
 }

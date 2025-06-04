@@ -32,6 +32,7 @@ RM := rm -rf
 -include Libraries/iLLD/TC27D/Tricore/Cpu/CStart/subdir.mk
 -include Libraries/iLLD/TC27D/Tricore/Asclin/Std/subdir.mk
 -include Libraries/iLLD/TC27D/Tricore/Asclin/Asc/subdir.mk
+-include Libraries/Service/CpuGeneric/SysSe/Bsp/subdir.mk
 -include Libraries/Service/CpuGeneric/StdIf/subdir.mk
 -include Libraries/Infra/Platform/Tricore/Compilers/subdir.mk
 -include Configurations/Debug/subdir.mk
@@ -65,39 +66,39 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := test
+BUILD_ARTIFACT_NAME := controller
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 SECONDARY_SIZE += \
-test.siz \
+controller.siz \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: test.elf secondary-outputs
+main-build: controller.elf secondary-outputs
 
 # Tool invocations
-test.elf: $(OBJS) makefile $(OPTIONAL_TOOL_DEPS)
+controller.elf: $(OBJS) makefile $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: TASKING Linker'
-	cctc --lsl-file="../bsp/Lcf_Tasking_Tricore_Tc.lsl" -Wl-Oc -Wl-OL -Wl-Ot -Wl-Ox -Wl-Oy -Wl--map-file="test.map" -Wl-mc -Wl-mf -Wl-mi -Wl-mk -Wl-ml -Wl-mm -Wl-md -Wl-mr -Wl-mu --no-warnings= -Wl--error-limit=42 --fp-model=3 -lrt --lsl-core=vtc --exceptions --strict --anachronisms --force-c++ -Ctc27xd -o"test.elf" -Wl-o"test.hex:IHEX" $(OBJS)
+	cctc --lsl-file="../bsp/Lcf_Tasking_Tricore_Tc.lsl" -Wl-Oc -Wl-OL -Wl-Ot -Wl-Ox -Wl-Oy -Wl--map-file="controller.map" -Wl-mc -Wl-mf -Wl-mi -Wl-mk -Wl-ml -Wl-mm -Wl-md -Wl-mr -Wl-mu --no-warnings= -Wl--error-limit=42 --fp-model=3 -lrt --lsl-core=vtc --exceptions --strict --anachronisms --force-c++ -Ctc27xd -o"controller.elf" -Wl-o"controller.hex:IHEX" $(OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-test.siz: test.elf makefile $(OPTIONAL_TOOL_DEPS)
+controller.siz: controller.elf makefile $(OPTIONAL_TOOL_DEPS)
 	@echo 'Invoking: Print Size'
-	elfsize  "test.elf"
+	elfsize  "controller.elf"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) test.siz test.elf
+	-$(RM) controller.siz controller.elf
 	-@echo ' '
 
 secondary-outputs: $(SECONDARY_SIZE)

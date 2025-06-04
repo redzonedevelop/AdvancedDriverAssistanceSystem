@@ -26,17 +26,17 @@ OBJS += \
 
 # Each subdirectory must supply rules for building sources it contributes
 "Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuCcu.src":"../Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuCcu.c" "Libraries/iLLD/TC27D/Tricore/Scu/Std/subdir.mk"
-	cctc -cs --dep-file="$*.d" --misrac-version=2004 -D__CPU__=tc27xd -DIFX_GTM=1 "-fC:/Users/USER/Downloads/AdvancedDriverAssistanceSystem/code/template/tc275/TriCore Debug (TASKING)/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc27xd -Y0 -N0 -Z0 -o "$@" "$<"
+	cctc -cs --dep-file="$*.d" --misrac-version=2004 -D__CPU__=tc27xd "-fC:/Users/USER/Desktop/AdvancedDriverAssistanceSystem/code/controller/TriCore Debug (TASKING)/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc27xd -Y0 -N0 -Z0 -o "$@" "$<"
 "Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuCcu.o":"Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuCcu.src" "Libraries/iLLD/TC27D/Tricore/Scu/Std/subdir.mk"
-	astc -I"C:\Users\USER\Downloads\AdvancedDriverAssistanceSystem\code\template\tc275\bsp" -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	astc -I"C:\Users\USER\Desktop\AdvancedDriverAssistanceSystem\code\controller\bsp" -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
 "Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuEru.src":"../Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuEru.c" "Libraries/iLLD/TC27D/Tricore/Scu/Std/subdir.mk"
-	cctc -cs --dep-file="$*.d" --misrac-version=2004 -D__CPU__=tc27xd -DIFX_GTM=1 "-fC:/Users/USER/Downloads/AdvancedDriverAssistanceSystem/code/template/tc275/TriCore Debug (TASKING)/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc27xd -Y0 -N0 -Z0 -o "$@" "$<"
+	cctc -cs --dep-file="$*.d" --misrac-version=2004 -D__CPU__=tc27xd "-fC:/Users/USER/Desktop/AdvancedDriverAssistanceSystem/code/controller/TriCore Debug (TASKING)/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc27xd -Y0 -N0 -Z0 -o "$@" "$<"
 "Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuEru.o":"Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuEru.src" "Libraries/iLLD/TC27D/Tricore/Scu/Std/subdir.mk"
-	astc -I"C:\Users\USER\Downloads\AdvancedDriverAssistanceSystem\code\template\tc275\bsp" -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	astc -I"C:\Users\USER\Desktop\AdvancedDriverAssistanceSystem\code\controller\bsp" -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
 "Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.src":"../Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.c" "Libraries/iLLD/TC27D/Tricore/Scu/Std/subdir.mk"
-	cctc -cs --dep-file="$*.d" --misrac-version=2004 -D__CPU__=tc27xd -DIFX_GTM=1 "-fC:/Users/USER/Downloads/AdvancedDriverAssistanceSystem/code/template/tc275/TriCore Debug (TASKING)/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc27xd -Y0 -N0 -Z0 -o "$@" "$<"
+	cctc -cs --dep-file="$*.d" --misrac-version=2004 -D__CPU__=tc27xd "-fC:/Users/USER/Desktop/AdvancedDriverAssistanceSystem/code/controller/TriCore Debug (TASKING)/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc27xd -Y0 -N0 -Z0 -o "$@" "$<"
 "Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.o":"Libraries/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.src" "Libraries/iLLD/TC27D/Tricore/Scu/Std/subdir.mk"
-	astc -I"C:\Users\USER\Downloads\AdvancedDriverAssistanceSystem\code\template\tc275\bsp" -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+	astc -I"C:\Users\USER\Desktop\AdvancedDriverAssistanceSystem\code\controller\bsp" -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
 
 clean: clean-Libraries-2f-iLLD-2f-TC27D-2f-Tricore-2f-Scu-2f-Std
 

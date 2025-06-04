@@ -28,6 +28,7 @@ Configurations/Debug \
 . \
 Libraries/Infra/Platform/Tricore/Compilers \
 Libraries/Service/CpuGeneric/StdIf \
+Libraries/Service/CpuGeneric/SysSe/Bsp \
 Libraries/iLLD/TC27D/Tricore/Asclin/Asc \
 Libraries/iLLD/TC27D/Tricore/Asclin/Std \
 Libraries/iLLD/TC27D/Tricore/Cpu/CStart \

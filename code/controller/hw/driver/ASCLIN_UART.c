@@ -130,8 +130,7 @@ void receive_uart_message(void)
     g_count = 1;
     // SIZE 바이트가 들어올 때까지 기다림
     IfxAsclin_Asc_read(&g_ascHandle, g_rxData, &g_count, 1);
-<<<<<<< Updated upstream
-=======
+
     Ifx_Fifo_clear(g_ascHandle.rx);//읽을때마다 플러시
->>>>>>> Stashed changes
+
 }

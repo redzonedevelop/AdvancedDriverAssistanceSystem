@@ -35,21 +35,15 @@
 /*********************************************************************************************************************/
 #define LED_LEFT     &MODULE_P00,5   /* Port pin for the LED     */
 #define LED_RIGHT    &MODULE_P10,2
-<<<<<<< Updated upstream
-#define BUTTON_LEFT  &MODULE_P00,7   /* Port pin for the button  */
-#define BUTTON_RIGHT &MODULE_P02,1
 
-typedef enum{
-    ON,
-    OFF
-=======
+
 #define BUTTON_LEFT  &MODULE_P10,1   /* Port pin for the button  */
 #define BUTTON_RIGHT &MODULE_P00,7
 
 typedef enum{
     OFF,
     ON
->>>>>>> Stashed changes
+
 }state;
 
 state l_prev = OFF;
@@ -82,15 +76,7 @@ void control_LED(void)
      * function can be used to retrieve any port state by just specifying the port number
      * as illustrated.
      */
-<<<<<<< Updated upstream
-//    if(IfxPort_getPinState(BUTTON_LEFT) == 0){
-//        l_cur = ON;
-//    }
-//
-//    if(IfxPort_getPinState(BUTTON_RIGHT) == 0){
-//        r_cur = ON;
-//    }
-=======
+
     if(IfxPort_getPinState(BUTTON_LEFT) == 0){
         l_cur = ON;
     }
@@ -98,38 +84,28 @@ void control_LED(void)
     if(IfxPort_getPinState(BUTTON_RIGHT) == 0){
         r_cur = ON;
     }
->>>>>>> Stashed changes
+
 
 
     if(l_cur != l_prev){
         if(l_cur == ON){
-<<<<<<< Updated upstream
-            IfxPort_setPinState(LED_LEFT, IfxPort_State_low);
-        }
-        else{
-            IfxPort_setPinState(LED_LEFT, IfxPort_State_high);
-=======
+
             IfxPort_setPinState(LED_LEFT, IfxPort_State_high);
         }
         else{
             IfxPort_setPinState(LED_LEFT, IfxPort_State_low);
->>>>>>> Stashed changes
+
         }
     }
 
     if(r_cur != r_prev){
         if(r_cur == ON){
-<<<<<<< Updated upstream
-            IfxPort_setPinState(LED_RIGHT, IfxPort_State_low);
-        }
-        else{
-            IfxPort_setPinState(LED_RIGHT, IfxPort_State_high);
-=======
+
             IfxPort_setPinState(LED_RIGHT, IfxPort_State_high);
         }
         else{
             IfxPort_setPinState(LED_RIGHT, IfxPort_State_low);
->>>>>>> Stashed changes
+
         }
     }
 
